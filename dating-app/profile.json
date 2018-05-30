@@ -1,0 +1,101 @@
+[{
+    "name": "John",
+    "surname": "Doe",
+    "gender": "male",
+    "age": 19,
+    "isRelated": true,
+    "image": "../assets/img_profile/image1.jpeg",
+    "likes": 31
+  },
+  {
+    "name": "Mark",
+    "surname": "Twain",
+    "gender": "male",
+    "age": 33,
+    "civilStatus": false,
+    "image": "../assets/img_profile/image2.jpeg",
+    "likes": 52
+  },
+  {
+    "name": "Oliver",
+    "surname": "Twist",
+    "gender": "male",
+    "age": 23,
+    "civilStatus": false,
+    "image": "../assets/img_profile/image3.jpeg",
+    "likes": 25
+  },
+  {
+    "name": "Stefan",
+    "surname": "Zweig",
+    "gender": "male",
+    "age": 35,
+    "civilStatus": true,
+    "image": "../assets/img_profile/image4.jpeg",
+    "likes": 22
+  },
+  {
+    "name": "Bertolt",
+    "surname": "Brecht",
+    "gender": "male",
+    "age": 55,
+    "civilStatus": true,
+    "image": "../assets/img_profile/image13.jpeg",
+    "likes": 40
+  },
+  {
+    "name": "Anna",
+    "surname": "Maier",
+    "gender": "female",
+    "age": 35,
+    "civilStatus": false,
+    "image": "../assets/img_profile/image6.jpeg",
+    "likes": 30
+  },
+  {
+    "name": "Natalie",
+    "surname": "Schmit",
+    "gender": "female",
+    "age": 30,
+    "civilStatus": true,
+    "image": "../assets/img_profile/image7.jpeg",
+    "likes": 0
+  },
+  {
+    "name": "Jola",
+    "surname": "Berger",
+    "gender": "female",
+    "age": 39,
+    "civilStatus": true,
+    "image": "../assets/img_profile/image8.jpeg",
+    "likes": 34
+  },
+  {
+    "name": "Elfriede",
+    "surname": "Schmidt",
+    "gender": "female",
+    "age": 59,
+    "civilStatus": true,
+    "image": "../assets/img_profile/image9.jpeg",
+    "likes": 17
+  },
+  {
+    "name": "Vira",
+    "surname": "Johnson",
+    "gender": "female",
+    "age": 35,
+    "civilStatus": false,
+    "image": "../assets/img_profile/image10.jpeg",
+    "likes": 33
+  },
+  {
+    "name": "Efy",
+    "surname": "VonJodel",
+    "gender": "female",
+    "age": 19,
+    "civilStatus": true,
+    "image": "../assets/img_profile/image11.jpeg",
+    "likes": 55
+  }
+
+]
