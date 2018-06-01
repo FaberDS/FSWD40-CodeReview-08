@@ -17,6 +17,7 @@
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-12 col-lg-offset-1 col-md-offset-1 pl-5 mt-5 mb-5">
                       <h4 class="mr-5">Name: <small>{{profiles.name}} {{profiles.surname}}</small></h4>
+                      <h4 class="mr-5">Age: <small>{{profiles.age}}</small></h4>
                       <h4 class="mr-5"><h4>Civil Status: <small *ngIf="profiles.civilStatus; else single">Related</small>
                         <ng-template #single><small>Single</small></ng-template></h4>
                     

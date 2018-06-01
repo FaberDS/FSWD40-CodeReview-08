@@ -53,3 +53,6 @@
 .disLikeBtn:hover{
     color: rgb(226, 12, 12);
 };
+.moreBtn{
+    font-size: 30px !important;
+}
