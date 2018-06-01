@@ -1,39 +1,57 @@
-<!-- <h1>Profiles</h1>
- <ul *ngFor="let profiles of profiles">
-  <li>{{profiles.name}} HAllo</li>
-</ul> --> 
-<!-- Optional Informations -->
-<div *ngIf="appState == 'extend'">
+<app-hero></app-hero>
+<!-- Optional Informations *********************************************************************-->
+<div class="container-fluid">
+    <div *ngIf="appState == 'extend'">
 
-    <div class="row">
-
-      <div class="col-lg-6">
-
-        <button class="btn btn-info" (click)="changeState('default')">close</button>
-
-      </div>
-
-      <div class="col-lg-6">
-
-        <div *ngFor="let profiles of profiles">
-
-          <div *ngIf="profiles.$key == activeKey">
-
-            {{profiles.name}}
-
-          </div>
-
+        <div class="row">
+  
+          
+    
+            <div *ngFor="let profiles of profiles" class="col-12">
+              
+              <div *ngIf="profiles.$key == activeKey" >
+                <div class="extraInfo">
+                  <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-12 text-center mt-5 mb-5">
+                    <img class="img-fluid imgProfile ml-5" src="{{profiles.image}}" alt="{{profiles.name}}-Image">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-lg-offset-1 col-md-offset-1 pl-5 mt-5 mb-5">
+                      <h4 class="mr-5">Name: <small>{{profiles.name}} {{profiles.surname}}</small></h4>
+                      <h4 class="mr-5"><h4>Civil Status: <small *ngIf="profiles.civilStatus; else single">Related</small>
+                        <ng-template #single><small>Single</small></ng-template></h4>
+                    
+                        <p *ngIf="profiles.gender =='male'; else female"><i class="fas fa-mars genderSymbol genderSymbolMale"></i></p></h4>
+                      
+                      <div class="col-12 details border-top likeValue" >
+                          
+                         
+                           <ng-template #female><p><i class="fas fa-venus genderSymbol genderSymbolFemale"></i></p></ng-template>
+                           <div class="mb-4">
+                              <div class="btnLike likeValue likeBtn"  (click)="addLike(profiles.$key ,profiles.likes)" #li><i class="far fa-thumbs-up"></i></div> 
+                              <span class="ml-4 mr-4 font-weight-bold likeValue">{{profiles.likes}}</span>             
+                               
+                               <div class="btnLike likeValue disLikeBtn" (click)="minusLike(profiles.$key ,profiles.likes)" #li><i class="far fa-thumbs-down"></i></div>
+                          </div>
+                  </div>
+                </div>
+                
+              </div>
+              <button class="btn btn-secondary closeBtn" (click)="changeState('default')">close</button>
+              </div>
+              
+            </div>
+           
+    
         </div>
-
+    
       </div>
-
-    </div>
-
-  </div>
-<div class="container">
-  <div *ngIf="appState == 'default'" class="row">
+</div>
+  
+<!-- filter fild  by Gender ********************************************************************* -->
+<div class="container-fluid">
+  <div *ngIf="appState == 'default'" class="row fluidStyle" >
       <div class="col-lg-12">
-        <label>Filter Gender
+        <label id="filterGenderLabel" >Filter Gender
           <select (change)="filterGender(filteredGender.value)" #filteredGender>
             <option value="0">All</option>
             <option *ngFor="let genderType of genderType" value="{{genderType.name}}">
@@ -44,25 +62,87 @@
       </div>
     </div>
 </div>
-<div class="container">
+
+<!-- print elements ********************************************************************* -->
+
+<div class="container-fluid">
 <div class="row">
-  <div  *ngFor="let profiles of profiles" class="col-lg-3 col-md-6 col-sm-12" >
+  <div  *ngFor="let profiles of profiles" class="col-lg-3 col-md-6 col-sm-12 text-center mt-5" >
     <div class="row">
-        <div class="col-12">
-          <img class="img-fluid imgProfile" src="{{profiles.image}}" alt="{{profiles.name}}-Image">
+        <div class="col-12 text-center">
+          <img class="img-fluid imgProfile mb-4" src="{{profiles.image}}" alt="{{profiles.name}}-Image">
         </div>
         <div class="col-12 text-center">
             <h4>{{profiles.name}}  {{profiles.surname}}</h4>
         </div>
-        <div class="col-12 details border-top border-bottom">
-            <p *ngIf="profiles.civilStatus; else single">Related</p>
+        <div class="col-12 details border-top border-bottom likeValue" >
+           <p *ngIf="profiles.civilStatus; else single">Related</p>
             <ng-template #single><p>Single</p></ng-template>
-            <p *ngIf="profiles.gender =='male'; else female"><i class="fas fa-mars"></i></p>
-            <ng-template #female><p><i class="fas fa-venus"></i></p></ng-template>
-            <small class="posted"><i class="far fa-thumbs-up"></i>{{profiles.likes}}</small>              
-            <button (click)="changeState('extend', profiles.$key)" class="btn btn-info">More</button>
+        
+            <p *ngIf="profiles.gender =='male'; else female"><i class="fas fa-mars genderSymbol genderSymbolMale"></i></p>
+          
+            <ng-template #female><p><i class="fas fa-venus genderSymbol genderSymbolFemale"></i></p></ng-template>
+        
+            <div class="mb-4">
+                <div class="btnLike likeValue likeBtn"  (click)="addLike(profiles.$key ,profiles.likes)" #li><i class="far fa-thumbs-up"></i></div> 
+                <span class="ml-4 mr-4 font-weight-bold likeValue">{{profiles.likes}}</span>             
+                 
+                 <div class="btnLike likeValue disLikeBtn" (click)="minusLike(profiles.$key ,profiles.likes)" #li><i class="far fa-thumbs-down"></i></div>
+            </div>
+
+           
+            <div><button (click)="changeState('extend', profiles.$key)" class="btn btn-outline-success mb-4 moreBtn">More</button></div>            
         </div>
     </div>
   </div>
 </div>
+</div>
+
+<!-- adding button ********************************************************************* -->
+
+<div *ngIf="appState == 'default'" class="row fluidStyle">
+  <div class="col-lg-12">
+    <button class="btn btn-outline-secondary btn-lg btn-block"  id="addBtn" (click)="changeState('add')">Add a new Profile</button>
+  </div>
+</div>
+
+<!-- adding fild ********************************************************************* -->
+
+<div *ngIf="appState == 'add'">
+  <div class="panel panel-primary">
+      <div class="panel-heading">Add new Profile</div>
+      <div class="panel-body">
+          <form (submit)="addProfile(name.value,surname.value,image.value,gender.value,civilStatus.value)">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" #name>
+                          <label for="surname">Surname:</label>
+                          <input type="text" class="form-control" #surname>
+                          <label for="age">Age:</label>
+                          <input type="text" class="form-control" #age>
+                          <label for="image">Image Link:</label>
+                          <input type="text" class="form-control" #image>
+                      </div>
+                      <label for="sel1">Gender:</label>
+                      <select class="form-control" #category>
+                          <option class="form-control" id="genderSelect" value="0">Gender</option>
+                          <option class="form-control" *ngFor="let genderType of genderType" value="{{genderType.name}}">
+                              {{genderType.name}}
+                          </option>
+                      </select>
+                      <label for="civilStatus">Civil Status:</label>
+                      <select class="form-control" #category>
+                          <option class="form-control" value="0">CivilStatus</option>
+                          <option class="form-control" *ngFor="let civilStatus of civilStatus" value="{{civilStatus.name}}">
+                              {{civilStatus.name}}
+                          </option>
+                      </select>
+                      <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>

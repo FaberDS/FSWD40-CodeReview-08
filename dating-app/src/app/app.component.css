@@ -1,3 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 .imgProfile{
     height: 300px;
+    box-shadow: 2px 2px 5px #92A4AA;
 }
+.btnLike{
+    display: inline;
+}
+.fluidStyle{
+    height: 80px;
+    text-align: center;
+    background-color: #D3D9D6;
+    padding: 10px;
+    box-shadow: 2px 2px 5px #92A4AA;
+}
+#filterGenderLabel{
+    font-size: 35px;
+    color: #999999;
+}
+.extraInfo{
+    background-color: rgba(251, 136, 255, 0.322);
+}
+#addBtn{
+    margin-top: 15px;
+}
+.closeBtn{
+    width: 100%;
+}
+.genderSymbol{
+    border-radius: 50%;
+    border: 2px solid black;
+    color: white;
+    padding: 12px;
+}
+.genderSymbol:hover{
+    border: none;
+}
+.genderSymbolMale{
+    background-color: grey;
+}
+.genderSymbolFemale{
+    background-color: rgb(235, 160, 235);
+}
+.likeValue{
+    font-size: 35px;
+};
+.likeBtn:hover{
+    color: rgb(3, 240, 3) !important;
+};
+.disLikeBtn:hover{
+    color: rgb(226, 12, 12);
+};
